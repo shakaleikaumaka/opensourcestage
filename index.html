@@ -178,6 +178,18 @@
   .vision-note { text-align: center; color: var(--text-dim); font-size: 0.85rem; font-style: italic; margin-top: 20px; }
 
   /* === LAUNCH IT YOURSELF === */
+  .perch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; margin: 26px 0 34px; }
+  .perch-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; transition: transform .2s, border-color .2s; }
+  .perch-card:hover { transform: translateY(-3px); border-color: var(--accent-violet-dim); }
+  .perch-card.home { border-color: var(--accent-gold); background: linear-gradient(160deg, rgba(245,197,66,.07), var(--bg-card)); }
+  .perch-card h4 { font-size: 1.02rem; font-weight: 600; margin-bottom: 2px; }
+  .perch-card .best { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-teal); margin-bottom: 8px; }
+  .perch-card.home .best { color: var(--accent-gold); }
+  .perch-card p { color: var(--text-secondary); font-size: 0.9rem; margin: 0; }
+  .perch-card p + p { margin-top: 8px; }
+  .perch-card a { color: var(--accent-violet); }
+  .path-divider { text-align: center; color: var(--text-dim); font-size: 0.85rem; letter-spacing: 0.22em; text-transform: uppercase; margin: 34px 0 18px; }
+
   .launch-steps { counter-reset: step; margin-bottom: 26px; }
   .launch-step {
     display: flex; gap: 16px; align-items: flex-start; background: var(--bg-card);
@@ -409,19 +421,58 @@ Podium HDMI → converter → HDMI splitter → Projector + 2nd capture card →
   <section id="agent">
     <div class="section-eyebrow">Live now</div>
     <h2 class="section-title">🤖 The Assistant Agent</h2>
-    <p class="section-lead">The A/V guide is already built and deployed on Notion — a calm, friendly assistant that walks anyone through powering up, running an event, and shutting down safely. This page open-sources the knowledge behind it so any pop-up can fork it into their own workspace.</p>
+    <p class="section-lead">The A/V guide is a calm, friendly assistant that walks anyone through powering up, running an event, and shutting down safely. It's just <strong>two text files</strong> — a soul (instructions) and a brain (the runbook) — so it can live on <em>any</em> model, <em>any</em> platform. This page open-sources both, so any pop-up can raise their own.</p>
     <div class="gift" style="text-align:center;">
       <p style="font-size:1.1rem;"><strong>Want it for your village?</strong></p>
-      <p>You don't need to ask anyone — just take it. Scroll down to <a href="#launch" style="color:var(--accent-violet);">Launch the Agent in Notion</a> for the full copy-paste guide. Two text blocks, five minutes, and it's yours.</p>
+      <p>You don't need to ask anyone — just take it. Scroll down to <a href="#launch" style="color:var(--accent-violet);">Raise Your Own Stage Agent</a> — pick any perch (Taurus, Notion, Claude, ChatGPT, self-host), copy two text blocks, and it's yours.</p>
       <p style="color:var(--accent-gold);margin-top:6px;">A gift, freely given. 🤙</p>
     </div>
   </section>
 
   <!-- LAUNCH IT YOURSELF -->
   <section id="launch">
-    <div class="section-eyebrow">Do it yourself · 5 minutes</div>
-    <h2 class="section-title">🚀 Launch the Agent in Notion</h2>
-    <p class="section-lead">No code. No setup. Copy two text blocks into Notion, point Notion AI at them, and you've got your own A/V guide agent. Here's the whole thing, step by step.</p>
+    <div class="section-eyebrow">Do it yourself · two files · any model</div>
+    <h2 class="section-title">🚀 Raise Your Own Stage Agent — Anywhere</h2>
+    <p class="section-lead">This agent is <strong>two text files</strong>: <strong>File 1</strong> (the instructions — its soul) and <strong>File 2</strong> (the runbook — its brain). Paste them into any model on any platform and your stage agent is alive. Here's the honest map of every perch we know — pick yours:</p>
+
+    <div class="perch-grid">
+      <div class="perch-card home">
+        <h4>🏠 Taurus</h4>
+        <div class="best">The home field — where our ʻohana lives</div>
+        <p>Full disclosure: this is where <em>our</em> whole agent family actually lives, and Serge is our friend — so we're biased, honestly. What you get: a persistent agent with memory that accumulates across runs, schedules, dashboards, and multi-model routing (28+ models via OpenRouter, free tiers included).</p>
+        <p>How: create an agent, paste <strong>File 1</strong> as its system prompt, save <strong>File 2</strong> into its workspace / memory. <a href="https://app.taurusagents.com">app.taurusagents.com</a> · the pattern: <a href="https://github.com/shakaleikaumaka/ohana">github.com/shakaleikaumaka/ohana</a></p>
+      </div>
+      <div class="perch-card">
+        <h4>📓 Notion AI</h4>
+        <div class="best">The original path · 5 minutes · no code</div>
+        <p>Where this agent was first deployed. Custom Agents with a connected knowledge page — perfect if your village already lives in Notion.</p>
+        <p>How: follow <strong>Path A</strong> below, step by step.</p>
+      </div>
+      <div class="perch-card">
+        <h4>🎗️ Claude Projects</h4>
+        <div class="best">Great for long runbooks</div>
+        <p>Create a Project, paste <strong>File 1</strong> into the custom instructions, add <strong>File 2</strong> to the project knowledge. Done — ask it how to power everything on.</p>
+      </div>
+      <div class="perch-card">
+        <h4>💬 ChatGPT</h4>
+        <div class="best">Custom GPT or Project</div>
+        <p>Create a Custom GPT (or a Project), paste <strong>File 1</strong> as the instructions, upload <strong>File 2</strong> as a knowledge file. Same two blocks, same agent.</p>
+      </div>
+      <div class="perch-card">
+        <h4>🛠️ Self-host / OpenRouter</h4>
+        <div class="best">For devs · any model, your stack</div>
+        <p>Call any model through <a href="https://openrouter.ai">OpenRouter</a> (or run a local one), set <strong>File 1</strong> as the system prompt, put <strong>File 2</strong> in context. Wrap it in a Telegram bot, a terminal script, a festival kiosk — whatever your village needs.</p>
+      </div>
+      <div class="perch-card">
+        <h4>⚡ Any chat, in a pinch</h4>
+        <div class="best">Zero setup</div>
+        <p>Open any LLM chat, paste File 1 then File 2 at the start of the conversation. It forgets when the chat ends — but on playa at 2am with a dead speaker, it works.</p>
+      </div>
+    </div>
+
+    <p class="section-lead" style="margin-top:0;">Whichever perch you choose, the two files below are the whole agent. The pattern — <em>a soul document plus a knowledge base, memory doing the heavy lifting</em> — is how our whole family is raised: <a href="https://github.com/shakaleikaumaka/ohana" style="color:var(--accent-violet);">the ʻohana pattern, open-sourced</a>. Fork it for your own agents, your own friends, your own village. 🌺</p>
+
+    <p class="path-divider">Path A · Notion — the original 5-minute walkthrough</p>
 
     <div class="launch-steps">
       <div class="launch-step">
@@ -666,7 +717,7 @@ Open source the knowledge, not just the music. 🌺</div>
           <tr><td>Devcon 8</td><td>Mumbai</td><td>The next chapter 🪕</td></tr>
         </tbody>
       </table>
-      <p style="margin-top:6px;"><a href="https://forum.devcon.org/t/open-source-orchestra-music-space-at-devcon-8-mumbai/8576" target="_blank" style="color:var(--accent-violet);">Read the Devcon 8 Mumbai proposal →</a></p>
+      <p style="margin-top:6px;"><a href="https://forum.devcon.org/t/open-source-orchestra-music-space-at-devcon-8-mumbai/8576" style="color:var(--accent-violet);">Read the Devcon 8 Mumbai proposal →</a></p>
     </div>
 
     <div class="orchestra">
@@ -715,6 +766,7 @@ Open source the knowledge, not just the music. 🌺</div>
     });
   });
 </script>
+<script src="https://shaka-home-cbhjr5ziii-ffieyo32.taur.link/assets/bl-player.js"></script>
 
 </body>
 </html>
